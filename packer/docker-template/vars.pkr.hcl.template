@@ -1,0 +1,25 @@
+variable "pm_user" {
+  type        = string
+  description = "Proxmox User Name"
+  default     = "$proxmox_username"
+}
+variable "pm_pass" {
+  type        = string
+  description = "Proxmox User Password"
+  default     = "$proxmox_password"
+}
+variable "ssh_user" {
+  type        = string
+  description = "SSH User"
+  default     = "$ssh_username"
+}
+variable "ssh_pass" {
+  type        = string
+  description = "SSH Password"
+  default     = "$ssh_password"
+}
+variable "host_ip" {
+  type        = string
+  description = "Host IP"
+  default     = "$packer_host_ip"
+}

@@ -1,0 +1,12 @@
+{
+  "experimental": false,
+  "icc": false,
+  "log-driver": "syslog",
+  "log-level": "info",
+  "iptables": true,
+  "userns-remap": "default",
+  "storage-opts": [],
+  "userland-proxy": false,
+  "no-new-privileges": true,
+  "insecure-registries": []
+}
