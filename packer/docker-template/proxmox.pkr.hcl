@@ -36,7 +36,7 @@ source "proxmox-iso" "proxmox-debian-11" {
     "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
     "netcfg/confirm_static=true <wait> ",
     "debian-installer/allow_unauthenticated_ssl=true ",
-    "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed.cfg <wait>",
+    "preseed/url=https://raw.githubusercontent.com/sabbath666/infrastructure-platform/master/packer/docker-template/http/preseed.cfg <wait>",
     "<enter><wait>"
   ]
   boot_wait = "2s"
@@ -90,8 +90,8 @@ build {
       "docker network ls --quiet | xargs docker network inspect --format '{{ .Name }}: {{ .Options }}'",
       "docker pull hello-world",
       "docker run -d --name hello-world hello-world",
-      "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/daemon.json --output /etc/docker/daemon.json",
-      "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/audit.rules --output /etc/audit/rules.d/audit.rules",
+      "curl https://raw.githubusercontent.com/sabbath666/infrastructure-platform/master/packer/docker-template/http/daemon.json --output /etc/docker/daemon.json",
+      "curl https://raw.githubusercontent.com/sabbath666/infrastructure-platform/master/packer/docker-template/http/audit.rules --output /etc/audit/rules.d/audit.rules",
       "systemctl restart docker",
       "service auditd start",
       "git clone https://github.com/docker/docker-bench-security.git",
