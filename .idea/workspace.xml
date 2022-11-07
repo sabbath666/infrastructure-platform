@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286714bb-27e2-4ce5-930f-a64124b38d93" name="Changes" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/terraform/terraformrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portainer/agent-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packer/docker-template/proxmox.pkr.hcl" beforeDir="false" afterPath="$PROJECT_DIR$/packer/docker-template/proxmox.pkr.hcl" afterDir="false" />
     </list>
@@ -23,17 +22,20 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TF_FMT": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TF_FMT&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packer" />
@@ -47,7 +49,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663145529498</updated>
-      <workItem from="1663145530807" duration="25708000" />
+      <workItem from="1663145530807" duration="43450000" />
+      <workItem from="1665070061173" duration="233000" />
+      <workItem from="1665070304598" duration="27000" />
+      <workItem from="1665070345456" duration="234000" />
+      <workItem from="1665070603820" duration="5138000" />
+      <workItem from="1665211334109" duration="658000" />
+      <workItem from="1665604293048" duration="235000" />
+      <workItem from="1665608048325" duration="6203000" />
+      <workItem from="1665948076514" duration="2442000" />
+      <workItem from="1667252169047" duration="81000" />
+      <workItem from="1667478040482" duration="219000" />
+      <workItem from="1667817827178" duration="3289000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1663145980431</created>
@@ -70,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663146824676</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactoring">
+      <created>1663680765352</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663680765352</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

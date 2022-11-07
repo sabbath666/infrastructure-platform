@@ -9,7 +9,8 @@ packer {
 
 source "proxmox-iso" "proxmox-debian-11" {
   proxmox_url      = "https://45.12.65.130:8006/api2/json"
-  vm_name          = "debian-11-docker-template-ci-vm"
+  vm_name          = "debian-11-docker-template-vm"
+  vm_id            = 555
   iso_file         = "local:iso/debian-11.4.0-amd64-netinst.iso"
   iso_checksum     = "32c7ce39dbc977ce655869c7bd744db39fb84dff1e2493ad56ce05c3540dfc40"
   username         = "${var.pm_user}"
@@ -23,9 +24,9 @@ source "proxmox-iso" "proxmox-debian-11" {
   ssh_pty                = true
   ssh_handshake_attempts = 1000
 
-  http_directory = "http"
-  boot_key_interval= "1ms"
-  boot_command   = [
+  http_directory    = "http"
+  boot_key_interval = "1ms"
+  boot_command      = [
     "<esc><wait>",
     "auto <wait>",
     "netcfg/disable_dhcp=true ",
@@ -44,12 +45,12 @@ source "proxmox-iso" "proxmox-debian-11" {
 
   insecure_skip_tls_verify = true
 
-  template_name        = "debian-11-docker-template-ci"
+  template_name        = "debian-11-docker-template-ci-vm-555"
   template_description = "packer generated debian-11.4.0-amd64"
   unmount_iso          = true
 
   pool       = "admins"
-  memory     = 2000
+  memory     = 5000
   cores      = 2
   sockets    = 2
   os         = "l26"
@@ -57,7 +58,7 @@ source "proxmox-iso" "proxmox-debian-11" {
 
   disks {
     type              = "scsi"
-    disk_size         = "25G"
+    disk_size         = "35G"
     storage_pool      = "local"
     storage_pool_type = "lvm"
     format            = "raw"
@@ -95,9 +96,18 @@ build {
       "curl https://raw.githubusercontent.com/sabbath666/infrastructure-platform/master/packer/docker-template/http/audit.rules --output /etc/audit/rules.d/audit.rules",
       "systemctl restart docker",
       "service auditd start",
-      "git clone https://github.com/docker/docker-bench-security.git",
-      "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'"
-      "rm -rf /etc/network/interfaces"
+      "git clone https://github.com/docker/docker-bench-security.git"
+#      "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'",
+    ]
+  }
+  post-processor "shell-local" {
+    inline = [
+      "ssh root@45.12.65.130 qm set 555 --scsihw virtio-scsi-pci",
+      "ssh root@45.12.65.130 qm set 555 --ide2 local:cloudinit",
+      "ssh root@45.12.65.130 qm set 555 --boot c --bootdisk scsi0",
+      "ssh root@45.12.65.130 qm set 555 --ciuser    packer",
+      "ssh root@45.12.65.130 qm set 555 --cipassword Gfrth{ezrth",
+      "ssh root@45.12.65.130 qm set 555 --vga std"
     ]
   }
 }
